@@ -1,0 +1,103 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 350px;
+  width: 100%;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  --primary: #4CAF50;
+  --secondary: #FFC107;
+  --accent: #2196F3;
+  --x-color: var(--primary);
+  --o-color: var(--accent);
+  --ttt-bg: #fff;
+  --ttt-border: #eee;
+}
+
+.ttt-wrapper {
+  background: var(--ttt-bg);
+  padding: 2rem 2.5rem 2.5rem;
+  border-radius: 1.1rem;
+  box-shadow: 0 2px 12px 0 rgb(33 33 33 / 0.05);
+  min-width: 270px;
+}
+
+.ttt-title {
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 1.2rem;
+  letter-spacing: -1px;
+}
+
+.ttt-status {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+  color: var(--primary);
+}
+.ttt-status .X { color: var(--x-color); font-weight: 700; }
+.ttt-status .O { color: var(--o-color); font-weight: 700; }
+
+.ttt-board {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  margin-bottom: 1.4rem;
+}
+
+.ttt-row {
+  display: flex;
+  gap: 0.1rem;
+}
+
+.ttt-cell {
+  width: 60px;
+  height: 60px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  background: #fbfbfb;
+  border: 2px solid var(--ttt-border);
+  border-radius: 0.4rem;
+  color: #111;
+  cursor: pointer;
+  transition: background 0.1s, border 0.1s;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ttt-cell.X {
+  color: var(--x-color);
+  border-color: var(--primary);
+  background: #e8f5e9;
+}
+.ttt-cell.O {
+  color: var(--o-color);
+  border-color: var(--accent);
+  background: #e3f2fd;
+}
+.ttt-cell:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.ttt-restart-btn {
+  display: block;
+  margin: 0.6rem auto 0;
+  padding: 0.45rem 1.5rem;
+  background: var(--secondary);
+  color: #444;
+  border: none;
+  border-radius: 0.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+.ttt-restart-btn:hover, .ttt-restart-btn:focus {
+  background: #ffe082;
+}

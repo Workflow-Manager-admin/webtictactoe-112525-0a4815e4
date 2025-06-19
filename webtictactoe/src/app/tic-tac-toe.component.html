@@ -1,0 +1,26 @@
+<div class="ttt-wrapper">
+  <h2 class="ttt-title">Tic Tac Toe</h2>
+  <p class="ttt-status" *ngIf="!isGameOver">Current turn: <span [ngClass]="currentPlayer">{{ currentPlayer }}</span></p>
+  <p class="ttt-status" *ngIf="status === 'Draw'">It's a draw!</p>
+  <p class="ttt-status" *ngIf="status === 'X'">Winner: <span class="X">X</span></p>
+  <p class="ttt-status" *ngIf="status === 'O'">Winner: <span class="O">O</span></p>
+
+  <div class="ttt-board">
+    <div *ngFor="let row of board; let ri = index" class="ttt-row">
+      <button
+        class="ttt-cell"
+        *ngFor="let cell of row; let ci = index"
+        [disabled]="cell || isGameOver"
+        (click)="makeMove(ri, ci)"
+        [ngClass]="cell"
+        [attr.aria-label]="'Cell ' + (ri + 1) + ',' + (ci + 1)"
+      >
+        {{ cell }}
+      </button>
+    </div>
+  </div>
+
+  <button class="ttt-restart-btn" *ngIf="isGameOver" (click)="restart()">
+    Restart
+  </button>
+</div>
